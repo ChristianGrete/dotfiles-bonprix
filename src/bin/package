@@ -1,0 +1,66 @@
+#!/bin/sh
+
+[ $# -lt 1 ] && exit
+
+[ "$1" = '.' ] && "$VISUAL" '.' && exit
+
+usage="$(cat <<EOF
+Usage: bonprix package option | command [arguments...]
+
+Description:
+  TBD
+
+Version: $BONPRIX_PACKAGE_VERSION
+
+Location:
+  $BONPRIX_PACKAGE_SOURCES/bin/package
+
+Alias: bonprix pkg
+
+Options:
+  -?, -h, --help       Show usage (print this text)
+  -v, --version        Print bonprix CLI version
+
+Commands:
+  <no command>         Go to dotfiles package
+  .                    Go to package and open it
+  build                Build package sources
+  clean                Clean generated files
+  install              TBD
+  uninstall            TBD
+EOF
+)"
+
+if [ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]
+  then
+    echo "$usage"
+
+    exit
+fi
+
+unset usage
+
+if [ "$1" = '-v' ] || [ "$1" = '--version' ]
+  then
+    echo "$BONPRIX_PACKAGE_VERSION"
+
+    exit
+fi
+
+if [ -x "$BONPRIX_PACKAGE/bin/$1" ]
+  then
+    subcommand="$1"
+
+    shift
+
+    command "$BONPRIX_PACKAGE/bin/$subcommand" $@
+elif [ -e "$BONPRIX_PACKAGE/bin/$1" ]
+  then
+    echo "$BONPRIX_PACKAGE/bin/$1: command not executable" >&2
+
+    exit 126
+else
+  echo "$BONPRIX_PACKAGE/bin/$1: command not found" >&2
+
+  exit 127
+fi

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+command "$BONPRIX_PACKAGE_SOURCES/bin/package" $@
