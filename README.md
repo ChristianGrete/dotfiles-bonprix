@@ -44,5 +44,5 @@ Copyright © 2018 [Christian Grete](https://christiangrete.com)
 [github-dotfiles-url]: https://github.com/ChristianGrete/dotfiles
 [github-url]: https://github.com/ChristianGrete/dotfiles-bonprix
 [github-tags-url]: https://github.com/ChristianGrete/dotfiles-bonprix/tags
-[shield-dependency]: https://img.shields.io/badge/depends%20on-dotfiles-lightgrey.svg
+[shield-dependency]: https://img.shields.io/badge/depends_on-dotfiles-333333.svg
 [shield-github-tag]: https://img.shields.io/github/tag/ChristianGrete/dotfiles-bonprix.svg
