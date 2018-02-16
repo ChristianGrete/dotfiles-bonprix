@@ -8,7 +8,7 @@ usage="$(cat <<EOF
 Usage: bonprix package option | command [arguments...]
 
 Description:
-  TBD
+  A simple CLI to run tasks of the bonprix dotfiles package.
 
 Version: $BONPRIX_PACKAGE_VERSION
 
@@ -18,34 +18,28 @@ Location:
 Alias: bonprix pkg
 
 Options:
-  -?, -h, --help       Show usage (print this text)
-  -v, --version        Print bonprix CLI version
+  -?, -h, --help    Show usage (print this text)
+  -v, --version     Print bonprix CLI version
 
 Commands:
-  <no command>         Go to dotfiles package
-  .                    Go to package and open it
-  build                Build package sources
-  clean                Clean generated files
-  install              TBD
-  uninstall            TBD
+  <no command>      Go to bonprix dotfiles package
+  .                 Go to bonprix dotfiles package and open it
+  build             Build bonprix dotfiles package sources
+  clean             Clean generated and built files
+  install           Install bonprix dotfiles package profile
+  uninstall         Remove bonprix dotfiles package profile
 EOF
 )"
 
-if [ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]
-  then
-    echo "$usage"
+[ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]
 
-    exit
-fi
+[ $? -eq 0 ] && echo "$usage" && exit
 
 unset usage
 
-if [ "$1" = '-v' ] || [ "$1" = '--version' ]
-  then
-    echo "$BONPRIX_PACKAGE_VERSION"
+[ "$1" = '-v' ] || [ "$1" = '--version' ]
 
-    exit
-fi
+[ $? -eq 0 ] && echo "$BONPRIX_PACKAGE_VERSION" && exit
 
 if [ -x "$BONPRIX_PACKAGE/bin/$1" ]
   then

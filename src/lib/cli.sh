@@ -28,21 +28,15 @@ Run \`bonprix help <command>\` for more information on specific commands.
 EOF
   )"
 
-  if [ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]
-    then
-      echo "$usage"
+  [ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]
 
-      return
-  fi
+  [ $? -eq 0 ] && echo "$usage" && return
 
   unset usage
 
-  if [ "$1" = '-v' ] || [ "$1" = '--version' ]
-    then
-      echo "$BONPRIX_PACKAGE_VERSION"
+  [ "$1" = '-v' ] || [ "$1" = '--version' ]
 
-      return
-  fi
+  [ $? -eq 0 ] && echo "$BONPRIX_PACKAGE_VERSION" && return
 
   [ "$1" = '.' ] && cd "$BONPRIX" && "$VISUAL" '.' && return
 
