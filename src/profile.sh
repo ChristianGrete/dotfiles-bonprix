@@ -5,6 +5,8 @@ export BONPRIX_PACKAGE_VERSION="$(
   cd "$BONPRIX_PACKAGE"
 
   git describe --tags "$(git rev-list --max-count=1 --tags)" 2>/dev/null
+
+  [ $? -ne 0 ] && echo '0.0.0'
 )"
 
 . "$BONPRIX_PACKAGE_SOURCES/lib/cli.sh"
