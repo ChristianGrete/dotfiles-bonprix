@@ -1,0 +1,58 @@
+#!/bin/sh
+
+cd "$(dirname "$0")/.."
+
+[ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ]
+
+[ $? -eq 0 ] && export PWD="$(pwd)"
+
+if [ ! -x "$(command -v -- branch)" ]
+  then
+    echo "$(cat <<EOF
+Error: The \`branch\` command cannot execute. Please make sure that dotfiles is
+correctly installed. Then try again.
+EOF
+    )" >&2
+
+    exit 126
+fi
+
+if [ "$(branch)" != master ]
+  then
+    echo "$(cat <<EOF
+Error: Cannot release from $(branch) branch. Releases are only allowed in master
+branch. Please make sure that it is checked out and clean. Then try again.
+EOF
+    )" >&2
+
+    exit 1
+fi
+
+. "$PWD/bin/build"
+
+printf '
+Please enter a new version number: '
+
+read version </dev/tty
+
+for tag in $(git tag -l)
+  do
+    if [ "$tag" = "$version" ]
+      then
+        echo; echo "Error: Version $version is already tagged." >&2
+
+        exit 1
+    fi
+done
+
+unset tag
+
+git add dist
+
+git commit -m "release(v$version): distribute [ci skip]"
+
+git push origin master
+
+git tag -a "$version" -m "v$version"
+
+git push origin --tags
