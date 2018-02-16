@@ -1,0 +1,34 @@
+#!/bin/sh
+
+[ "$1" = '-v' ] || [ "$1" = '--version' ]
+
+[ $? -eq 0 ] && echo "$BONPRIX_PACKAGE_VERSION" && exit
+
+usage="$(cat <<EOF
+Usage: bonprix help option | command
+
+Description:
+  Shows more information on a specific command.
+
+Version: $BONPRIX_PACKAGE_VERSION
+
+Location:
+  $BONPRIX_PACKAGE_SOURCES/bin/help
+
+Options:
+  -v, --version           Print bonprix CLI version
+  <any other option>      Show usage (print this text)
+
+Commands:
+  <available command>     Show usage of command (print help text)
+  <any other command>     Show usage (print this text)
+EOF
+)"
+
+[ $# -lt 1 ] || [ "$1" = 'help' ] || [ ! -x "$BONPRIX_PACKAGE_SOURCES/bin/$1" ]
+
+[ $? -eq 0 ] && echo "$usage" && exit
+
+unset usage
+
+command "$BONPRIX_PACKAGE_SOURCES/bin/$1" -h

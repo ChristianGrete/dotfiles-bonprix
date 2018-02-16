@@ -1,0 +1,60 @@
+#!/bin/sh
+
+[ $# -lt 1 ] && exit
+
+[ "$1" = '.' ] && "$VISUAL" '.' && exit
+
+usage="$(cat <<EOF
+Usage: bonprix package option | command [arguments...]
+
+Description:
+  A simple CLI to run tasks of the bonprix dotfiles package.
+
+Version: $BONPRIX_PACKAGE_VERSION
+
+Location:
+  $BONPRIX_PACKAGE_SOURCES/bin/package
+
+Alias: bonprix pkg
+
+Options:
+  -?, -h, --help    Show usage (print this text)
+  -v, --version     Print bonprix CLI version
+
+Commands:
+  <no command>      Go to bonprix dotfiles package
+  .                 Go to bonprix dotfiles package and open it
+  build             Build bonprix dotfiles package sources
+  clean             Clean generated and built files
+  install           Install bonprix dotfiles package profile
+  uninstall         Remove bonprix dotfiles package profile
+EOF
+)"
+
+[ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]
+
+[ $? -eq 0 ] && echo "$usage" && exit
+
+unset usage
+
+[ "$1" = '-v' ] || [ "$1" = '--version' ]
+
+[ $? -eq 0 ] && echo "$BONPRIX_PACKAGE_VERSION" && exit
+
+if [ -x "$BONPRIX_PACKAGE/bin/$1" ]
+  then
+    subcommand="$1"
+
+    shift
+
+    command "$BONPRIX_PACKAGE/bin/$subcommand" $@
+elif [ -e "$BONPRIX_PACKAGE/bin/$1" ]
+  then
+    echo "$BONPRIX_PACKAGE/bin/$1: command not executable" >&2
+
+    exit 126
+else
+  echo "$BONPRIX_PACKAGE/bin/$1: command not found" >&2
+
+  exit 127
+fi
