@@ -18,4 +18,6 @@ fi
 
 [ $? -eq 0 ] && export PWD="$(pwd)"
 
+echo 'Creating symbolic link...'
+
 symlink "$PWD/src/profile.sh" "$PROFILES/bonprix.sh"

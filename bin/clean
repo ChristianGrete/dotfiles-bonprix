@@ -6,6 +6,21 @@ cd "$(dirname "$0")/.."
 
 [ $? -eq 0 ] && export PWD="$(pwd)"
 
+printf 'Removing `.DS_Store` files ... '
+
 find "$PWD" -name '.DS_Store' -type f -exec rm {} +
 
-rm -rf "$PWD/dist"
+if [ $? -eq 0 ]
+  then
+    echo 'success.'
+else
+  echo 'failed.'
+fi
+
+printf 'Removing `./dist` artifact ... '
+
+rm -fr "$PWD/dist"
+
+[ $? -ne 0 ] && echo 'failed.' && exit 1
+
+echo 'success.'

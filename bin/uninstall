@@ -1,3 +1,21 @@
 #!/bin/sh
 
-rm -rf "$PROFILES/bonprix.sh"
+if [ -z ${PROFILES:+PROFILES} ] || [ ! -d "$PROFILES" ] || [ ! -w "$PROFILES" ]
+  then
+    echo "$(cat <<EOF
+Your profiles directory is undefined or not writable. Please make sure that
+dotfiles is correctly installed and the user permissions are properly set. Then
+try again.
+EOF
+    )" >&2
+
+    exit 1
+fi
+
+printf 'Removing symbolic link ... '
+
+rm -fr "$PROFILES/bonprix.sh"
+
+[ $? -ne 0 ] && echo 'failed.' && exit 1
+
+echo 'success.'
