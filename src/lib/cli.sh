@@ -5,7 +5,7 @@ bonprix () {
 Usage: bonprix option | command [arguments...]
 
 Description:
-  TBD
+  A user friendly CLI to simplify common tasks at bonprix.
 
 Version: $BONPRIX_PACKAGE_VERSION
 
