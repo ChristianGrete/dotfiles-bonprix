@@ -6,7 +6,7 @@ export BONPRIX_PACKAGE_VERSION="$(
 
   git describe --tags "$(git rev-list --max-count=1 --tags)" 2>/dev/null
 
-  [ $? -ne 0 ] && echo '0.0.0'
+  [ $? -ne 0 ] && echo 'Unversioned'
 )"
 
 . "$BONPRIX_PACKAGE_SOURCES/lib/cli.sh"
@@ -14,4 +14,9 @@ export BONPRIX_PACKAGE_VERSION="$(
 alias bp='bonprix'
 alias bp.='bp .'
 alias bpp='bp pkg'
+alias bpp.='bpp .'
 alias bppb='bpp build'
+alias bppc='bpp clean'
+alias bppi='bpp install'
+alias bppr='bpp release'
+alias bppu='bpp uninstall'
