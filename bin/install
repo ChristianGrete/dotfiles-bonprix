@@ -5,9 +5,9 @@ cd "$(dirname "$0")/.."
 if [ -z ${PROFILES:+PROFILES} ] || [ ! -d "$PROFILES" ] || [ ! -w "$PROFILES" ]
   then
     echo "$(cat <<EOF
-Your profiles directory is undefined or not writable. Please make sure that
-dotfiles is correctly installed and the user permissions are properly set. Then
-try again.
+Error: Your profiles directory is undefined or not writable. Please make sure
+that dotfiles is correctly installed and the user permissions are properly set.
+Then try again.
 EOF
     )" >&2
 
