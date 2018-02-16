@@ -2,7 +2,7 @@ bonprix () {
   [ $# -lt 1 ] && cd "$BONPRIX" && return
 
   usage="$(cat <<EOF
-Usage: bonprix option | [paths...] | command [arguments...]
+Usage: bonprix option | command [arguments...] | paths...
 
 Description:
   A user friendly CLI to simplify common tasks at bonprix.
@@ -21,9 +21,9 @@ Options:
 Commands:
   <no command>         Go to workspace
   .                    Go to workspace and open it
-  <paths...>           Go to workspace directories or open files in it
   help <command>       Show more information on a command
   package <command>    Go to dotfiles package and optionally run <command>
+  <paths...>           Go to workspace directories or open files in it
 
 Run \`bonprix help <command>\` for more information on specific commands.
 EOF
@@ -64,19 +64,51 @@ EOF
     then
       if [ -d "$BONPRIX/$1" ]
         then
-          cd "$BONPRIX/$1"
+          if [ $# -eq 1 ] || [ "$2" = '.' ]
+            then
+              cd "$BONPRIX/$1"
+          fi
 
           if [ $# -gt 1 ]
             then
               [ "$2" = '.' ] && "$VISUAL" '.' && return
 
-              # TODO: Iterate through parameters
-              # E.g. `$ bonprix my-project file.txt` opens
-              # `$BONPRIX/my-project/file.txt` etc.
+              paths="$BONPRIX/$1"
+
+              shift
+
+              for segment in "$@"
+                do
+                  if [ "$segment" = '.' ] && [ -d "$paths" ]
+                    then
+                      cd "$paths" && "$VISUAL" '.' && return
+                  fi
+
+                  if [ -r "$paths/$segment" ]
+                    then
+                      paths="$paths/$segment"
+
+                      [ ! -d "$paths" ] && break
+                  else
+                    echo "$paths/$segment: invalid path" >&2
+
+                    return 1
+                  fi
+              done
+
+              unset segment
+
+              [ -d "$paths" ] && cd "$paths" && return
+
+              [ -f "$paths" ] && cd "$(dirname "$paths")" && "$VISUAL" "$paths"
           fi
       elif [ -f "$BONPRIX/$1" ]
         then
           cd "$(dirname "$BONPRIX/$1")" && "$VISUAL" "$BONPRIX/$1"
       fi
+  else
+    echo "$BONPRIX/$1: invalid path" >&2
+
+    return 1
   fi
 }

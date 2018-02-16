@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 - `docs(readme)`: add dependency shield
 - `feat(src)`: enhance cli
+- `feat(src)`: enhance cli navigation
 
 ### Changed
 - `docs(readme)`: use darker gray in dependency shield
