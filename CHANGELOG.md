@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 ## [Unreleased]
 
+### Added
+
+- `feat(src)`: add more aliases
+
 ### Changed
 
 - `fix(readme)`: fix github tag shield url
