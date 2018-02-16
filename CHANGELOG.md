@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 ### Changed
 - `docs(readme)`: use darker gray in dependency shield
+- `fix(bin)`: properly check for commands
 
 ### Unmerged
 

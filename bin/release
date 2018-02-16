@@ -6,7 +6,7 @@ cd "$(dirname "$0")/.."
 
 [ $? -eq 0 ] && export PWD="$(pwd)"
 
-if [ ! -x "$(command -v -- branch)" ]
+if [ ! -x "$(command -v -- branch 2>/dev/null)" ]
   then
     echo "$(cat <<EOF
 Error: The \`branch\` command cannot execute. Please make sure that dotfiles is
