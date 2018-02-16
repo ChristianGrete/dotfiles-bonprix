@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 ### Changed
 
 - `fix(readme)`: fix github tag shield url
+- `style(src)`: remove zero version number
 
 ### Unmerged
 
