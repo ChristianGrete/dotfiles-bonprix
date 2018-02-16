@@ -1,0 +1,11 @@
+#!/bin/sh
+
+cd "$(dirname "$0")/.."
+
+[ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ]
+
+[ $? -eq 0 ] && export PWD="$(pwd)"
+
+. "$PWD/bin/clean"
+
+cp -R "$PWD/src" "$PWD/dist"

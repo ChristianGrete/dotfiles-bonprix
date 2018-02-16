@@ -1,0 +1,11 @@
+#!/bin/sh
+
+cd "$(dirname "$0")/.."
+
+[ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ]
+
+[ $? -eq 0 ] && export PWD="$(pwd)"
+
+find "$PWD" -name '.DS_Store' -type f -exec rm {} +
+
+rm -rf "$PWD/dist"
