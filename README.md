@@ -1,5 +1,6 @@
 # [dotfiles-bonprix][github-url]
 
+[![Depends on dotfiles][shield-dependency]][github-dotfiles-url]
 [![Latest GitHub Tag][shield-github-tag]][github-tags-url]
 
 > Christian Grete’s dotfiles package to setup his workspace at bonprix
@@ -43,4 +44,5 @@ Copyright © 2018 [Christian Grete](https://christiangrete.com)
 [github-dotfiles-url]: https://github.com/ChristianGrete/dotfiles
 [github-url]: https://github.com/ChristianGrete/dotfiles-bonprix
 [github-tags-url]: https://github.com/ChristianGrete/dotfiles-bonprix/tags
+[shield-dependency]: https://img.shields.io/badge/depends%20on-dotfiles-lightgrey.svg
 [shield-github-tag]: https://img.shields.io/github/tag/ChristianGrete/dotfiles-bonprix.svg
