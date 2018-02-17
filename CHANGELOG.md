@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 ## [Unreleased]
 
+### Added
+
+- `docs(readme)`: add logo
+
 ### Unmerged
 
 - [develop]
