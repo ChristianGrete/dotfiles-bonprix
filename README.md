@@ -1,4 +1,4 @@
-# [![dotfiles](https://cdn.rawgit.com/ChristianGrete/dotfiles-bonprix/develop/logo.svg "dotfiles")][github-url]
+# [![dotfiles-bonprix](https://cdn.rawgit.com/ChristianGrete/dotfiles-bonprix/develop/logo.svg "dotfiles-bonprix")][github-url]
 
 [![Depends on dotfiles][shield-dependency]][github-dotfiles-url]
 [![Latest GitHub Tag][shield-github-tag]][github-tags-url]

@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 - `docs(readme)`: add logo
 
+### Fixed
+
+- `fix(readme)`: use correct fallback text
+
 ### Unmerged
 
 - [develop]
@@ -25,6 +29,9 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 ### Changed
 
 - `docs(readme)`: use darker gray in dependency shield
+
+### Fixed
+
 - `fix(bin)`: properly check for commands
 
 ## [0.0.1-beta] – 2018-02-16
@@ -36,8 +43,11 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 ### Changed
 
-- `fix(readme)`: fix github tag shield url
 - `style(src)`: remove zero version number
+
+### Fixed
+
+- `fix(readme)`: fix github tag shield url
 
 ## [0.0.1-alpha] – 2018-02-16
 
