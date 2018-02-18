@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 ## [Unreleased]
 
+### Changed
+
+`docs(log)`: use logo from master branch
+
 ### Unmerged
 
 - [develop]
