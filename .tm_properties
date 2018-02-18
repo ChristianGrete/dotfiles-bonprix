@@ -1,0 +1,44 @@
+binary = "{$binary}"
+encoding = "UTF-8"
+exclude = "{$exclude,.DS_Store}"
+excludeInProject= "{dist}"
+excludeInFileChooser = "{$excludeInFileChooser,$excludeInProject}"
+excludeInFolderSearch = "{$excludeInFolderSearch,$excludeInProject}"
+include = "{$include,.{editorconfig,git?*,tm_properties}}"
+projectDirectory = "$CWD"
+projectName = "dotfiles-bonprix"
+rightWindowTitle = "${TM_FILEPATH:+ — ${TM_FILEPATH/${CWD}\///}}"
+scmBranch = "${TM_SCM_BRANCH:+@$TM_SCM_BRANCH}"
+leftWindowTitle = "$projectName$scmBranch"
+softTabs = true
+tabSize = 2
+windowTitle = "$leftWindowTitle$rightWindowTitle"
+wrapColumn = 80
+
+[ attr.untitled ]
+fileType = source.shell
+
+[ text.git-commit ]
+softTabs = false
+spellChecking = true
+spellingLanguage = "en"
+tabSize = 4
+
+[ text.html.markdown ]
+softTabs = false
+spellChecking = true
+spellingLanguage = "en"
+tabSize = 4
+wrapColumn = "Use Window Frame"
+
+[ ".editorconfig" ]
+fileType = source.tm-properties
+
+[ ".gitignore" ]
+fileType = source.git-config
+
+[ "*.md" ]
+fileType = text.html.markdown
+
+[ "*.svg" ]
+fileType = text.xml

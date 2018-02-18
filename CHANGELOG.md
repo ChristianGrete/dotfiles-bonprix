@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 ### Added
 
 - `docs(readme)`: add logo
+- `style(mate)`: add editor config
 
 ### Fixed
 
