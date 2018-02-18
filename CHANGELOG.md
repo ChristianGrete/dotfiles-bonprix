@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 ## [Unreleased]
 
+### Unmerged
+
+- [develop]
+
+## [0.0.1-rc.1] – 2018-02-18
+
 ### Added
 
 - `docs(readme)`: add logo
@@ -14,10 +20,6 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 ### Fixed
 
 - `fix(readme)`: use correct fallback text
-
-### Unmerged
-
-- [develop]
 
 ## [0.0.1-rc] – 2018-02-16
 
@@ -56,7 +58,8 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 - `init(*)`: create and initialize project
 
-[Unreleased]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1-rc...master
+[Unreleased]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1-rc.1...master
+[0.0.1-rc.1]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1-rc...0.0.1-rc.1
 [0.0.1-rc]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1-beta...0.0.1-rc
 [0.0.1-beta]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1-alpha...0.0.1-beta
 [0.0.1-alpha]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0bb20f14967d5cd5a1d6c1e93ad398c24ced59b9...0.0.1-alpha
