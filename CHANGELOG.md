@@ -6,9 +6,13 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 ## [Unreleased]
 
+### Added
+
+- `feat(ci)`: implement travis
+
 ### Changed
 
-`docs(log)`: use logo from master branch
+- `docs(log)`: use logo from master branch
 
 ### Unmerged
 

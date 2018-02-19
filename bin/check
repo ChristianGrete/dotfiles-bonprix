@@ -1,0 +1,56 @@
+#!/bin/sh
+
+cd "$(dirname "$0")/.."
+
+[ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ]
+
+[ $? -eq 0 ] && export PWD="$(pwd)"
+
+usage="$(cat <<EOF
+Usage: check option | step
+
+Description:
+  A simple CLI to handle Travis CI steps.
+
+Options:
+  -?, -h, --help    Show usage (print this text)
+
+Steps (ordered by lifecycle):
+  before_install
+  install
+  script
+  after_script
+EOF
+)"
+
+[ $# -lt 1 ] || [ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]
+
+[ $? -eq 0 ] && echo "$usage" && exit
+
+unset usage
+
+if [ -z ${TRAVIS:+TRAVIS} ] || [ "$TRAVIS" != true ]
+  then
+    echo "$(cat <<EOF
+Error: Cannot run \`check\` steps outside of the Travis CI build environment.
+Running steps is only allowed on Travis machines. Do not use this CLI manually!
+EOF
+    )" >&2
+
+    exit 1
+fi
+
+steps="$PWD/lib/check"
+
+if [ -r "$steps/$1.sh" ]
+  then
+    step="$1"
+
+    shift
+
+    . "$steps/$step.sh"
+else
+  echo "Error: Unknown option or step \`$1\`." >&2
+
+  exit 1
+fi
