@@ -11,5 +11,3 @@ if [ $? -ne 0 ]
 
     exit 1
 fi
-
-echo "$(pwd)"
