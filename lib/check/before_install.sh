@@ -17,6 +17,17 @@ else
   exit 1
 fi
 
-echo
+printf 'Preparing dotfiles installation ... '
 
-"$HOME/.dotfiles/bin/check" before_install
+"$HOME/.dotfiles/bin/check" before_install >/dev/null 2>&1
+
+if [ $? -eq 0 ]
+  then
+    echo 'success.'
+else
+  echo 'failed.'
+
+  echo; echo "Error: Unable to prepare dotfiles installation." >&2
+
+  exit 1
+fi
