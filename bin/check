@@ -18,6 +18,8 @@ Options:
 Steps (ordered by lifecycle):
   before_install
   install
+  script
+  after_script
 EOF
 )"
 
