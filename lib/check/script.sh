@@ -5,7 +5,8 @@ Loading dotfiles ... '
 
 if [ $? -eq 0 ]
   then
-    echo 'success.'
+    echo 'success.
+'
 else
   echo 'failed.'
 
@@ -22,4 +23,4 @@ if [ $? -ne 0 ]
 fi
 
 echo '
-Build successful!'
+BUILD SUCCESSFUL!'
