@@ -16,8 +16,6 @@ fi
 
 [ $? -eq 0 ] && export PWD="$(pwd)"
 
-[ -z ${PROFILES:+PROFILES} ] && export PROFILES="$HOME/.profiles"
-
 echo '
 ... Installing dotfiles-bonprix package:
 '
