@@ -11,3 +11,9 @@ if [ $? -ne 0 ]
 
     exit 1
 fi
+
+[ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ]
+
+[ $? -eq 0 ] && export PWD="$(pwd)"
+
+"$PWD/bin/install"

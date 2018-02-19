@@ -1,6 +1,4 @@
 before_install: bin/check before_install
-install:
-  - bin/check install
-  - bin/install
+install: bin/check install
 language: generic
 os: osx
