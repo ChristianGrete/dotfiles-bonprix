@@ -16,4 +16,6 @@ fi
 
 [ $? -eq 0 ] && export PWD="$(pwd)"
 
+[ -z ${PROFILES:+PROFILES} ] && export PROFILES="$HOME/.profiles"
+
 "$PWD/bin/install"
