@@ -24,7 +24,7 @@ if [ $? -eq 0 ]
 else
   echo 'failed.'
 
-  echo; echo 'Error: Unable to install and load dotfiles.' >&2
+  echo; echo 'Error: Unable to initialize dotfiles.' >&2
 
   exit 1
 fi
