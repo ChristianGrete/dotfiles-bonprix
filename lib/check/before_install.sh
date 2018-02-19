@@ -1,5 +1,4 @@
-printf '... Preparing installation:
-
+printf 'BEFORE INSTALL:
 Downloading dotfiles to `~/.dotfiles` ... '
 
 dotfiles_repository='https://github.com/ChristianGrete/dotfiles.git'
