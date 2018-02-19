@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 ## [Unreleased]
 
+### Changed
+
+- `refactor(lib)`: use `symlink` in check
+
 ### Unmerged
 
 - [develop]
