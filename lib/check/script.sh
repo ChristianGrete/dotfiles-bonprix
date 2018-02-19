@@ -1,0 +1,4 @@
+printf 'SCRIPT STEP:
+'
+
+echo "$BONPRIX_PACKAGE_VERSION"

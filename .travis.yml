@@ -1,6 +1,6 @@
-after_script: bin/check after_script
-before_install: bin/check before_install
-install: bin/check install
+after_script: dash bin/check after_script
+before_install: sh bin/check before_install
+install: dash bin/check install
 language: generic
 os: osx
-script: bin/check script
+script: dash bin/check script
