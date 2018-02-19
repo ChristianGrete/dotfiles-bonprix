@@ -16,6 +16,21 @@ else
   exit 1
 fi
 
+printf 'Setting up dotfiles workspace ... '
+
+"$HOME/.dotfiles/bin/setup" >/dev/null 2>&1
+
+if [ $? -eq 0 ]
+  then
+    echo 'success.'
+else
+  echo 'failed.'
+
+  echo; echo "Error: Unable to setup dotfiles workspace." >&2
+
+  exit 1
+fi
+
 printf 'Preparing dotfiles installation ... '
 
 "$HOME/.dotfiles/bin/check" before_install >/dev/null 2>&1
