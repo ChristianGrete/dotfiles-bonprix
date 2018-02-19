@@ -14,4 +14,12 @@ else
   exit 1
 fi
 
-echo "$BONPRIX_PACKAGE_VERSION"
+bonprix -h
+
+if [ $? -ne 0 ]
+  then
+    echo; echo 'Error: `bonprix -h` command failed.' >&2
+fi
+
+echo '
+Build successful!'
