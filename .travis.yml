@@ -1,0 +1,2 @@
+before_install: sh bin/check before_install
+install: sh bin/check install
