@@ -1,4 +1,4 @@
-printf 'BEFORE INSTALL:
+printf 'BEFORE INSTALL STEP:
 Downloading dotfiles to `~/.dotfiles` ... '
 
 dotfiles_repository='https://github.com/ChristianGrete/dotfiles.git'
@@ -26,7 +26,7 @@ if [ $? -eq 0 ]
 else
   echo 'failed.'
 
-  echo; echo "Error: Unable to setup dotfiles workspace." >&2
+  echo; echo "Error: Cannot setup dotfiles workspace." >&2
 
   exit 1
 fi
