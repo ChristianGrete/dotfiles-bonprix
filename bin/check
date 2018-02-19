@@ -17,6 +17,7 @@ Options:
 
 Steps (ordered by lifecycle):
   before_install
+  install
 EOF
 )"
 
