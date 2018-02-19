@@ -35,7 +35,7 @@ fi
 
 printf 'Linking dotfiles-bonprix package ... '
 
-ln -s "$PWD" "$DOTFILES_PACKAGES/dotfiles-bonprix" >/dev/null 2>&1
+symlink "$PWD" "$DOTFILES_PACKAGES/dotfiles-bonprix" >/dev/null 2>&1
 
 if [ $? -eq 0 ]
   then
