@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 - [develop]
 
+## [0.0.1] – 2018-02-19
+
 ## [0.0.1-rc.2] – 2018-02-19
 
 ### Added
@@ -68,7 +70,8 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 - `init(*)`: create and initialize project
 
-[Unreleased]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1-rc.2...master
+[Unreleased]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1...master
+[0.0.1]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1-rc.2...0.0.1
 [0.0.1-rc.2]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1-rc.1...0.0.1-rc.2
 [0.0.1-rc.1]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1-rc...0.0.1-rc.1
 [0.0.1-rc]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1-beta...0.0.1-rc
