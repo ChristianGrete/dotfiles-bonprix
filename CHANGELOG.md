@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 ### Changed
 
 - `refactor(lib)`: use `symlink` in check
+- `refactor(bin)`: make `install` scalable
 
 ### Unmerged
 
