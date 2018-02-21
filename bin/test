@@ -2,9 +2,7 @@
 
 cd "$(dirname "$0")/.."
 
-[ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ]
-
-[ $? -eq 0 ] && export PWD="$(pwd)"
+[ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ] && export PWD="$(pwd)"
 
 usage="$(cat <<EOF
 Usage: test [option]
@@ -17,9 +15,12 @@ Options:
 EOF
 )"
 
-[ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]
+if [ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]
+  then
+    echo "$usage"
 
-[ $? -eq 0 ] && echo "$usage" && exit
+    exit
+fi
 
 unset usage
 
