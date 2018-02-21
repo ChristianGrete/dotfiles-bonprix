@@ -6,14 +6,16 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 ## [Unreleased]
 
+### Unmerged
+
+- [develop]
+
+## [0.0.2] – 2018-02-21
+
 ### Changed
 
 - `refactor(lib)`: use `symlink` in check
 - `refactor(bin)`: make `install` scalable
-
-### Unmerged
-
-- [develop]
 
 ## [0.0.1] – 2018-02-19
 
@@ -75,7 +77,8 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 - `init(*)`: create and initialize project
 
-[Unreleased]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1...master
+[Unreleased]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.2...master
+[0.0.2]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1-rc.2...0.0.1
 [0.0.1-rc.2]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1-rc.1...0.0.1-rc.2
 [0.0.1-rc.1]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1-rc...0.0.1-rc.1
