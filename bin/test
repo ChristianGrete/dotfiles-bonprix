@@ -1,0 +1,28 @@
+#!/bin/sh
+
+cd "$(dirname "$0")/.."
+
+[ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ]
+
+[ $? -eq 0 ] && export PWD="$(pwd)"
+
+usage="$(cat <<EOF
+Usage: test [option]
+
+Description:
+  TBD
+
+Options:
+  -?, -h, --help    Show usage (print this text)
+EOF
+)"
+
+[ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]
+
+[ $? -eq 0 ] && echo "$usage" && exit
+
+unset usage
+
+. "$HOME/.profile" >/dev/null 2>&1
+
+# TODO: Run specs in lib/test
