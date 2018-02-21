@@ -15,11 +15,15 @@ else
   exit 1
 fi
 
-bonprix -h
+[ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ] && export PWD="$(pwd)"
+
+"$PWD/bin/test"
 
 if [ $? -ne 0 ]
   then
-    echo; echo 'Error: `bonprix -h` command failed.' >&2
+    echo; echo 'Error: Testing dotfiles-bonprix package failed.' >&2
+
+    exit 1
 fi
 
 echo '
