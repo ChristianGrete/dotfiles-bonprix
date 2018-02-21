@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 ## [Unreleased]
 
+### Added
+
+- `docs(log)`: add pull requests to changelog
+
 ### Unmerged
 
 - [develop]
@@ -14,8 +18,8 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 ### Changed
 
-- `refactor(lib)`: use `symlink` in check
-- `refactor(bin)`: make `install` scalable
+- `refactor(lib)`: use `symlink` in check [[#2](https://github.com/ChristianGrete/dotfiles-bonprix/pull/2)]
+- `refactor(bin)`: make `install` scalable [[#3](https://github.com/ChristianGrete/dotfiles-bonprix/pull/3)]
 
 ## [0.0.1] – 2018-02-19
 
@@ -23,7 +27,7 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 ### Added
 
-- `feat(ci)`: implement travis
+- `feat(ci)`: implement travis [[#1](https://github.com/ChristianGrete/dotfiles-bonprix/pull/1)]
 
 ### Changed
 
