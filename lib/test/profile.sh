@@ -37,38 +37,38 @@ describe '$BONPRIX_PACKAGE_SOURCES/lib/cli.sh'
     [ "$(bonprix -v 2>&1)" = "$BONPRIX_PACKAGE_VERSION" ]
     [ $? -eq 0 ] && succeed || fail
 
-describe 'bp'
+describe 'alias bp'
   it 'is defined'
     alias bp >/dev/null 2>&1 && succeed || fail
 
-describe 'bp.'
+describe 'alias bp.'
   it 'is defined'
     alias 'bp.' >/dev/null 2>&1 && succeed || fail
 
-describe 'bpp'
+describe 'alias bpp'
   it 'is defined'
     alias bpp >/dev/null 2>&1 && succeed || fail
 
-describe 'bpp.'
+describe 'alias bpp.'
   it 'is defined'
     alias 'bpp.' >/dev/null 2>&1 && succeed || fail
 
-describe 'bppb'
+describe 'alias bppb'
   it 'is defined'
     alias bppb >/dev/null 2>&1 && succeed || fail
 
-describe 'bppc'
+describe 'alias bppc'
   it 'is defined'
     alias bppc >/dev/null 2>&1 && succeed || fail
 
-describe 'bppi'
+describe 'alias bppi'
   it 'is defined'
     alias bppi >/dev/null 2>&1 && succeed || fail
 
-describe 'bppr'
+describe 'alias bppr'
   it 'is defined'
     alias bppr >/dev/null 2>&1 && succeed || fail
 
-describe 'bppu'
+describe 'alias bppu'
   it 'is defined'
     alias bppu >/dev/null 2>&1 && succeed || fail
