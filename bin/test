@@ -46,14 +46,22 @@ EOF
     exit 126
 fi
 
-fail () {
-  echo 'failed.'
+describe () {
+  echo $@
+}
 
-  exit 1
+it () {
+  printf "  - $@ "
 }
 
 succeed () {
-  echo 'success.'
+  echo '✓'
+}
+
+fail () {
+  echo '✗'
+
+  exit 1
 }
 
 specs="$PWD/lib/test"
