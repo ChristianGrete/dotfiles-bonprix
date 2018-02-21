@@ -1,0 +1,3 @@
+describe 'pkg'
+  it 'is a shortcut for package'
+    [ "$(bonprix pkg -h)" = "$(bonprix package -h)" ] && succeed || fail
