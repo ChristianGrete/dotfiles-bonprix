@@ -17,13 +17,20 @@ fi
 
 [ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ] && export PWD="$(pwd)"
 
-"$PWD/bin/test"
+printf 'Running test specs ... '
 
-if [ $? -ne 0 ]
+"$PWD/bin/test" >/dev/null 2>&1
+
+if [ $? -eq 0 ]
   then
-    echo; echo 'Error: Testing dotfiles-bonprix package failed.' >&2
+    echo 'success.
+'
+else
+  echo 'failed.'
 
-    exit 1
+  echo; echo 'Error: Testing dotfiles-bonprix package failed.' >&2
+
+  exit 1
 fi
 
 echo '
