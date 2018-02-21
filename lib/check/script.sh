@@ -15,9 +15,9 @@ else
   exit 1
 fi
 
-[ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ] && export PWD="$(pwd)"
-
 printf 'Running test specs ... '
+
+[ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ] && export PWD="$(pwd)"
 
 "$PWD/bin/test" >/dev/null 2>&1
 
