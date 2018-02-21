@@ -5,13 +5,17 @@ cd "$(dirname "$0")/.."
 [ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ] && export PWD="$(pwd)"
 
 usage="$(cat <<EOF
-Usage: test [option]
+Usage: test [option | spec]
 
 Description:
-  TBD
+  A simple CLI to run test specs.
 
 Options:
-  -?, -h, --help    Show usage (print this text)
+  -?, -h, --help     Show usage (print this text)
+
+Specs:
+  <no spec>          Run all specs
+  <spec filename>    Run a specific spec
 EOF
 )"
 
@@ -24,6 +28,43 @@ fi
 
 unset usage
 
+if [ ! -f "$HOME/.profile" ] || [ ! -r "$HOME/.profile" ]
+  then
+    exit 1
+fi
+
 . "$HOME/.profile" >/dev/null 2>&1
 
-# TODO: Run specs in lib/test
+specs="$PWD/lib/test"
+
+if [ $# -lt 1 ]
+  then
+    for spec in $(walk $specs)
+      do
+        spec="${spec#"$specs/"}"
+
+        if [ ! -r "$specs/$spec" ]
+          then
+            echo "$(cat <<EOF
+Warning: Unable to run spec \`$spec\`.
+Maybe the file is corrupted or the user permissions are not properly set.
+EOF
+            )" >&2
+
+            continue
+        fi
+
+        . "$specs/$spec"
+    done
+elif [ -f "$specs/$1" ] && [ -r "$specs/$1" ]
+  then
+    spec="$1"
+
+    shift
+
+    . "$specs/$spec"
+else
+  echo "Error: Unknown option or spec \`$1\`." >&2
+
+  exit 1
+fi
