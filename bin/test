@@ -35,6 +35,17 @@ fi
 
 . "$HOME/.profile" >/dev/null 2>&1
 
+if [ ! -x "$(command -v -- walk 2>/dev/null)" ]
+  then
+    echo "$(cat <<EOF
+Error: The \`walk\` command cannot execute. Please make sure that dotfiles is
+correctly installed. Then try again.
+EOF
+    )" >&2
+
+    exit 126
+fi
+
 specs="$PWD/lib/test"
 
 if [ $# -lt 1 ]
