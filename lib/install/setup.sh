@@ -12,7 +12,7 @@ fi
 
 if [ ! -d "$PROJECTS/@bonprix" ]
   then
-    printf 'Creating workspace directory ... '
+    printf 'Setting up bonprix workspace ... '
 
     mkdir "$PROJECTS/@bonprix" >/dev/null 2>&1
 
@@ -22,7 +22,7 @@ if [ ! -d "$PROJECTS/@bonprix" ]
     else
       echo 'failed.'
 
-      echo; echo "Error: Unable to create bonprix workspace." >&2
+      echo; echo "Error: Cannot setup bonprix workspace." >&2
 
       exit 1
     fi

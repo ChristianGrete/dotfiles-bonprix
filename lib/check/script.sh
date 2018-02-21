@@ -5,8 +5,7 @@ Loading dotfiles ... '
 
 if [ $? -eq 0 ]
   then
-    echo 'success.
-'
+    echo 'success.'
 else
   echo 'failed.'
 
