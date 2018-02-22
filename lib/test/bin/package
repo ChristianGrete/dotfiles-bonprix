@@ -8,9 +8,9 @@ describe 'bonprix package'
   it 'prints its own usage text when executed with `--help`'
     [ "$(bonprix package --help 2>/dev/null)" != '' ] && succeed || fail
   it 'implements and prints `$BONPRIX_PACKAGE_VERSION` when executed with `-v`'
-    [ "$(bonprix help -v)" = "$BONPRIX_PACKAGE_VERSION" ] && succeed || fail
+    [ "$(bonprix package -v)" = "$BONPRIX_PACKAGE_VERSION" ] && succeed || fail
   it 'also prints `$BONPRIX_PACKAGE_VERSION` when executed with `--version`'
-    [ "$(bonprix help --version)" = "$BONPRIX_PACKAGE_VERSION" ]
+    [ "$(bonprix package --version)" = "$BONPRIX_PACKAGE_VERSION" ]
     [ $? -eq 0 ] && succeed || fail
 
 describe 'bonprix package <command>'
