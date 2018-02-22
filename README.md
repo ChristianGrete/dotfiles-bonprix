@@ -37,6 +37,8 @@ bonprix --help
 
 If, for whatever reason, you want to contribute to this edgy project, you’re very welcome to have a look at the [contribution guidelines](CONTRIBUTING.md) on how to get involved.
 
+Also, see the [code of conduct](CODE_OF_CONDUCT.md) on how to do the #trololo.
+
 ## License
 
 This software is licensed under [MIT License](LICENSE.md).
