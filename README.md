@@ -33,6 +33,12 @@ This package adds a `bonprix` CLI. Just type the following into a new terminal w
 bonprix --help
 ```
 
+## Contributing
+
+If, for whatever reason, you want to contribute to this edgy project, you’re very welcome to have a look at the [contribution guidelines](CONTRIBUTING.md) on how to get involved.
+
+Also, see the [code of conduct](CODE_OF_CONDUCT.md) on how to do the [#trololo][github-trololo-url].
+
 ## License
 
 This software is licensed under [MIT License](LICENSE.md).
@@ -49,6 +55,7 @@ Copyright © 2018 [Christian Grete](https://christiangrete.com)
 [github-dotfiles-url]: https://github.com/ChristianGrete/dotfiles
 [github-url]: https://github.com/ChristianGrete/dotfiles-bonprix
 [github-tags-url]: https://github.com/ChristianGrete/dotfiles-bonprix/tags
+[github-trololo-url]: https://github.com/search?q=trololo
 [shield-branch-develop]: https://img.shields.io/badge/branch-develop-333333.svg
 [shield-branch-master]: https://img.shields.io/badge/branch-master-333333.svg
 [shield-dependency]: https://img.shields.io/badge/depends_on-dotfiles-333333.svg

@@ -5,8 +5,7 @@ Loading dotfiles ... '
 
 if [ $? -eq 0 ]
   then
-    echo 'success.
-'
+    echo 'success.'
 else
   echo 'failed.'
 
@@ -15,11 +14,21 @@ else
   exit 1
 fi
 
-bonprix -h
+printf 'Running test specs ... '
 
-if [ $? -ne 0 ]
+[ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ] && export PWD="$(pwd)"
+
+"$PWD/bin/test" >/dev/null 2>&1
+
+if [ $? -eq 0 ]
   then
-    echo; echo 'Error: `bonprix -h` command failed.' >&2
+    echo 'success.'
+else
+  echo 'failed.'
+
+  echo; echo 'Error: Testing dotfiles-bonprix package failed.' >&2
+
+  exit 1
 fi
 
 echo '

@@ -1,0 +1,99 @@
+#!/bin/sh
+
+cd "$(dirname "$0")/.."
+
+[ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ] && export PWD="$(pwd)"
+
+usage="$(cat <<EOF
+Usage: test [option | spec]
+
+Description:
+  A simple CLI to run test specs.
+
+Options:
+  -?, -h, --help     Show usage (print this text)
+
+Specs:
+  <no spec>          Run all specs
+  <spec filename>    Run a specific spec
+EOF
+)"
+
+if [ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]
+  then
+    echo "$usage"
+
+    exit
+fi
+
+unset usage
+
+if [ ! -f "$HOME/.profile" ] || [ ! -r "$HOME/.profile" ]
+  then
+    exit 1
+fi
+
+. "$HOME/.profile" >/dev/null 2>&1
+
+if [ ! -x "$(command -v -- walk 2>/dev/null)" ]
+  then
+    echo "$(cat <<EOF
+Error: The \`walk\` command cannot execute. Please make sure that dotfiles is
+correctly installed. Then try again.
+EOF
+    )" >&2
+
+    exit 126
+fi
+
+describe () {
+  echo $@
+}
+
+it () {
+  printf "  - $@ "
+}
+
+succeed () {
+  echo '✓'
+}
+
+fail () {
+  echo '✗'
+
+  exit 1
+}
+
+specs="$PWD/lib/test"
+
+if [ $# -lt 1 ]
+  then
+    for spec in $(walk $specs)
+      do
+        spec="${spec#"$specs/"}"
+
+        if [ ! -r "$specs/$spec" ]
+          then
+            echo "$(cat <<EOF
+Warning: Unable to run spec \`$spec\`.
+Maybe the file is corrupted or the user permissions are not properly set.
+EOF
+            )" >&2
+
+            continue
+        fi
+
+        . "$specs/$spec"
+    done
+elif [ -f "$specs/$1" ] && [ -r "$specs/$1" ]
+  then
+    spec="$1"
+
+    shift
+
+    . "$specs/$spec"
+else
+  echo "Error: Unknown option or spec \`$1\`." >&2
+
+  exit 1
+fi
