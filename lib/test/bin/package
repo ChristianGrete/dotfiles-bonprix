@@ -1,7 +1,6 @@
 describe 'bonprix package'
   it 'changes the directory to `$BONPRIX_PACKAGE`'
-    $(bonprix package && [ "$(pwd)" = "$BONPRIX_PACKAGE" ])
-    [ $? -eq 0 ] && succeed || fail
+    $(bonprix package && [ "$(pwd)" = "$BONPRIX_PACKAGE" ]) && succeed || fail
   it 'prints its own usage text when executed with `-?`'
     [ "$(bonprix package -? 2>/dev/null)" != '' ] && succeed || fail
   it 'prints its own usage text when executed with `-h`'
