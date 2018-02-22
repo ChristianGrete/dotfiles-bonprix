@@ -7,11 +7,12 @@ describe 'bonprix help'
     [ "$(bonprix help -y)" = "$(bonprix help)" ] && succeed || fail
   it 'prints its own usage text when executed with non-existing command'
     [ "$(bonprix help wtf)" = "$(bonprix help)" ] && succeed || fail
-
-describe 'bonprix help -v'
-  it 'implements and prints `$BONPRIX_PACKAGE_VERSION`'
+  it 'implements and prints `$BONPRIX_PACKAGE_VERSION` when executed with `-v`'
     [ "$(bonprix help -v)" = "$BONPRIX_PACKAGE_VERSION" ] && succeed || fail
+  it 'also prints `$BONPRIX_PACKAGE_VERSION` when executed with `--version`'
+    [ "$(bonprix help --version)" = "$BONPRIX_PACKAGE_VERSION" ]
+    [ $? -eq 0 ] && succeed || fail
 
-describe 'bonprix help package'
-  it 'prints the usage text of `bonprix package -h`'
+describe 'bonprix help <available command>'
+  it 'prints the usage text of `bonprix <available command> -h`'
     [ "$(bonprix help package)" = "$(bonprix package -h)" ] && succeed || fail
