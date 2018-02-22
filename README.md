@@ -33,6 +33,10 @@ This package adds a `bonprix` CLI. Just type the following into a new terminal w
 bonprix --help
 ```
 
+## Contributing
+
+If, for whatever reason, you want to contribute to this edgy project, you’re very welcome to have a look at the [contribution guidelines](CONTRIBUTING.md) on how to get involved.
+
 ## License
 
 This software is licensed under [MIT License](LICENSE.md).
