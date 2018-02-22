@@ -1,0 +1,17 @@
+describe 'bonprix help'
+  it 'prints its own usage text'
+    [ "$(bonprix help 2>/dev/null)" != '' ] && succeed || fail
+  it 'prints its own usage text when executed as `bonprix help help`'
+    [ "$(bonprix help help)" = "$(bonprix help)" ] && succeed || fail
+  it 'prints its own usage text when executed with unavailable option'
+    [ "$(bonprix help -y)" = "$(bonprix help)" ] && succeed || fail
+  it 'prints its own usage text when executed with non-existing command'
+    [ "$(bonprix help wtf)" = "$(bonprix help)" ] && succeed || fail
+
+describe 'bonprix help -v'
+  it 'implements and prints `$BONPRIX_PACKAGE_VERSION`'
+    [ "$(bonprix help -v)" = "$BONPRIX_PACKAGE_VERSION" ] && succeed || fail
+
+describe 'bonprix help package'
+  it 'prints the usage text of `bonprix package -h`'
+    [ "$(bonprix help package)" = "$(bonprix package -h)" ] && succeed || fail
