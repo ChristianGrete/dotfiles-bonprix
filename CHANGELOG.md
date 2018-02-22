@@ -6,13 +6,17 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 ## [Unreleased]
 
-### Added
-
-- `docs(log)`: add pull requests to changelog
-
 ### Unmerged
 
 - [develop]
+
+## [0.1.0] – 2018-02-22
+
+### Added
+
+- `docs(log)`: add pull requests to changelog
+- `test(dist)`: add test cli and specs [[#4](https://github.com/ChristianGrete/dotfiles-bonprix/pull/4)]
+  - also add contribution guidelines and code of conduct
 
 ## [0.0.2] – 2018-02-21
 
@@ -81,7 +85,8 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 - `init(*)`: create and initialize project
 
-[Unreleased]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.2...master
+[Unreleased]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.1.0...master
+[0.1.0]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.2...0.1.0
 [0.0.2]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1-rc.2...0.0.1
 [0.0.1-rc.2]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1-rc.1...0.0.1-rc.2
