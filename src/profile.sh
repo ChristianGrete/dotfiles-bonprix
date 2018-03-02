@@ -9,10 +9,9 @@ export BONPRIX_PACKAGE_VERSION="$(
   [ $? -ne 0 ] && echo 'Unversioned'
 )"
 
-export ANT_HOME="$(brew --prefix ant)"
-export IVY_HOME="$(brew --prefix ivy)"
+export ANT_HOME="$(brew --prefix ant)/libexec"
 export JAVA_HOME="$(/usr/libexec/java_home)"
-export M2_HOME="$(brew --prefix maven)"
+export M2_HOME="$(brew --prefix maven)/libexec"
 export TOMCAT_HOME="$(brew --prefix tomcat@7)/libexec"
 
 export PATH="$TOMCAT_HOME/bin:$M2_HOME/bin:$ANT_HOME/bin:$PATH"
