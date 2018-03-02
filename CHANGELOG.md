@@ -6,13 +6,15 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 ## [Unreleased]
 
-### Added
-
-- `feat(src)`: add `admin` executable
-
 ### Unmerged
 
 - [develop]
+
+## [0.2.0] – 2018-03-02
+
+### Added
+
+- `feat(src)`: add `admin` executable
 
 ## [0.1.0] – 2018-02-22
 
@@ -89,7 +91,8 @@ The format is based on [Keep a Changelog][keep-a-changelog-url] and this project
 
 - `init(*)`: create and initialize project
 
-[Unreleased]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.1.0...master
+[Unreleased]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.2.0...master
+[0.2.0]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.1.0...0.2.0
 [0.1.0]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.2...0.1.0
 [0.0.2]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/ChristianGrete/dotfiles-bonprix/compare/0.0.1-rc.2...0.0.1
