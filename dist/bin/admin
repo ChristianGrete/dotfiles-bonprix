@@ -1,0 +1,37 @@
+#!/bin/sh
+
+[ "$1" = '-v' ] || [ "$1" = '--version' ]
+
+[ $? -eq 0 ] && echo "$BONPRIX_PACKAGE_VERSION" && exit
+
+usage="$(cat <<EOF
+Usage: bonprix admin [commands...]
+
+Description:
+  Simplifies administrative activities.
+
+Version: $BONPRIX_PACKAGE_VERSION
+
+Location:
+  $BONPRIX_PACKAGE_SOURCES/bin/admin
+
+Options:
+  -?, -h, --help    Show usage (print this text)
+  -v, --version     Print bonprix CLI version
+
+Commands:
+  <no command>      Login as admin
+  <any commands>    Execute <commands...> as admin
+EOF
+)"
+
+[ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]
+
+[ $? -eq 0 ] && echo "$usage" && exit
+
+if [ $# -lt 1 ]
+  then
+    command su -l "$(whoami)-admin"
+else
+  command su "$(whoami)-admin" -c "$*"
+fi

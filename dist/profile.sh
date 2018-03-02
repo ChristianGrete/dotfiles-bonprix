@@ -13,6 +13,7 @@ export BONPRIX_PACKAGE_VERSION="$(
 
 alias bp='bonprix'
 alias bp.='bp .'
+alias bpa='bp admin'
 alias bpp='bp pkg'
 alias bpp.='bpp .'
 alias bppb='bpp build'
