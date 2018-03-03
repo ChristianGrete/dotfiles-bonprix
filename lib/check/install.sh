@@ -48,6 +48,21 @@ else
   exit 1
 fi
 
+printf 'Building dotfiles-bonprix package ... '
+
+"$DOTFILES_PACKAGES/dotfiles-bonprix/bin/build" >/dev/null 2>&1
+
+if [ $? -eq 0 ]
+  then
+    echo 'success.'
+else
+  echo 'failed.'
+
+  echo; echo "Error: Cannot build dotfiles-bonprix package." >&2
+
+  exit 1
+fi
+
 printf 'Installing dotfiles-bonprix package ... '
 
 "$DOTFILES_PACKAGES/dotfiles-bonprix/bin/install" >/dev/null 2>&1
