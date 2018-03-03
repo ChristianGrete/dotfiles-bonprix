@@ -1,0 +1,6 @@
+brew 'ant'
+brew 'ivy'
+brew 'maven'
+brew 'tomcat@7'
+cask 'intellij-idea'
+cask 'java8'
