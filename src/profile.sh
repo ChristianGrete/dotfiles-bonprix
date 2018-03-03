@@ -9,22 +9,9 @@ export BONPRIX_PACKAGE_VERSION="$(
   [ $? -ne 0 ] && echo 'Unversioned'
 )"
 
-export ANT_HOME="$(brew --prefix ant)/libexec"
-export JAVA_HOME="$(/usr/libexec/java_home)"
-export M2_HOME="$(brew --prefix maven)/libexec"
-export TOMCAT_HOME="$(brew --prefix tomcat@7)/libexec"
+for file in env lib/cli.sh aliases
+  do
+    . "$BONPRIX_PACKAGE_SOURCES/$file"
+done
 
-export PATH="$TOMCAT_HOME/bin:$M2_HOME/bin:$ANT_HOME/bin:$PATH"
-
-. "$BONPRIX_PACKAGE_SOURCES/lib/cli.sh"
-
-alias bp='bonprix'
-alias bp.='bp .'
-alias bpa='bp admin'
-alias bpp='bp pkg'
-alias bpp.='bpp .'
-alias bppb='bpp build'
-alias bppc='bpp clean'
-alias bppi='bpp install'
-alias bppr='bpp release'
-alias bppu='bpp uninstall'
+unset file
