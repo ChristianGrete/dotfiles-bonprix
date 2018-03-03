@@ -13,7 +13,7 @@ Description:
 Version: $BONPRIX_PACKAGE_VERSION
 
 Location:
-  $BONPRIX_PACKAGE_SOURCES/bin/help
+  $BONPRIX_PACKAGE_SOURCES/libexec/help
 
 Options:
   -v, --version           Print bonprix CLI version
@@ -25,10 +25,12 @@ Commands:
 EOF
 )"
 
-[ $# -lt 1 ] || [ "$1" = 'help' ] || [ ! -x "$BONPRIX_PACKAGE_SOURCES/bin/$1" ]
+[ $# -lt 1 ] || [ "$1" = 'help' ]
+
+[ $? -eq 0 ] || [ ! -x "$BONPRIX_PACKAGE_SOURCES/libexec/$1" ]
 
 [ $? -eq 0 ] && echo "$usage" && exit
 
 unset usage
 
-command "$BONPRIX_PACKAGE_SOURCES/bin/$1" -h
+command "$BONPRIX_PACKAGE_SOURCES/libexec/$1" -h

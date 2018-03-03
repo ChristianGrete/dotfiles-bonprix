@@ -49,13 +49,13 @@ EOF
       fi
   fi
 
-  if [ -x "$BONPRIX_PACKAGE_SOURCES/bin/$1" ]
+  if [ -x "$BONPRIX_PACKAGE_SOURCES/libexec/$1" ]
     then
       command="$1"
 
       shift
 
-      command "$BONPRIX_PACKAGE_SOURCES/bin/$command" $@
+      command "$BONPRIX_PACKAGE_SOURCES/libexec/$command" $@
 
       return
   fi

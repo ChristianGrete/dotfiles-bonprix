@@ -13,7 +13,7 @@ Description:
 Version: $BONPRIX_PACKAGE_VERSION
 
 Location:
-  $BONPRIX_PACKAGE_SOURCES/bin/package
+  $BONPRIX_PACKAGE_SOURCES/libexec/package
 
 Alias: bonprix pkg
 
