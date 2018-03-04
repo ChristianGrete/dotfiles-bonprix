@@ -39,7 +39,9 @@ As merging is not allowed, use `git pull --rebase` or `git pull -r` as well!
 ### Pushing
 _Reminder:_ Rebasing instead of merging requires pushes to be forced in most cases.
 
-## Directory structure
+## Working
+
+### Directory structure
 * `bin/`: Contains executable binaries for this project, e.g. tasks, tests, etc.
   * `...`
 * `dist/`: The generated artifact that will be consumed by [dotfiles][github-dotfiles-url]
@@ -56,6 +58,9 @@ _Reminder:_ Rebasing instead of merging requires pushes to be forced in most cas
   * `env`: Defines global environment variables provided by `profile.sh`
   * `profile.sh`: The entry point to this dotfiles package that will be sourced to provide all the stuff
 * `...`
+
+### Writing code
+All code should comply with the POSIX shell standard as far as possible. Prefer line breaks rather than semicolons. Limit lines to 80 characters. Prefer more files with less content over less files with hundreds of lines.
 
 Copyright © 2018 ([MIT](LICENSE.md)) [Christian Grete](https://christiangrete.com)
 
