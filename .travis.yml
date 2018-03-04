@@ -1,6 +1,6 @@
-after_script: dash bin/check after_script
-before_install: sh bin/check before_install
-install: dash bin/check install
+after_script: dash libexec/check after_script
+before_install: sh libexec/check before_install
+install: dash libexec/check install
 language: generic
 os: osx
-script: dash bin/check script
+script: dash libexec/check script
