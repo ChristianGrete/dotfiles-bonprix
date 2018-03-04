@@ -49,6 +49,8 @@ _Reminder:_ Rebasing instead of merging requires pushes to be forced in most cas
 * `lib/`: Libraries required and used by the executables in `bin/`
   * `test/`: Mirrors the `src/` directory structure but contains specs to test all the source files
   * `...`
+* `libexec/`: Executable binaries that are internally used by other programs
+  * `check`: A CLI used by Travis CI
 * `src/`: Contains the source files to be edited
   * `lib/`: Libraries required and used by `profile.sh` and/or executables in `libexec/`
     * `cli.sh`: Provides the `bonprix` function as a CLI
@@ -61,6 +63,20 @@ _Reminder:_ Rebasing instead of merging requires pushes to be forced in most cas
 
 ### Writing code
 All code should comply with the POSIX shell standard as far as possible. Prefer line breaks rather than semicolons. Limit lines to 80 characters. Prefer more files with less content over less files with hundreds of lines.
+
+### Generating a build
+Simply run:
+```sh
+bin/build
+```
+Or, when the package is installed, run:
+Simply run:
+```sh
+bonprix package build
+```
+
+### Release
+Releases are made by the repository owner. You must not execute `bin/release`.
 
 Copyright © 2018 ([MIT](LICENSE.md)) [Christian Grete](https://christiangrete.com)
 
