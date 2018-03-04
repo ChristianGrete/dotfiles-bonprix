@@ -19,11 +19,16 @@ As a contributor, you must fork the repository. See the [GitHub documentation on
   * Avoid committing/pushing into `develop` branch
   * Create branches from `develop` and merge requests into `develop`
   * Only squash merge your branches
+* Write tests in `lib/test/` for all your code changes/additions
 * Document your changes in [CHANGELOG.md](CHANGELOG.md)
 * When merging, use a proper commit title and description
 
 ### Committing
-TBD
+```
+type(scope): short summary as commit title
+- detailed information
+- more detailed information
+```
 
 ### Merging
 Do __not__ ever `git merge`! Use `git rebase`.
@@ -40,7 +45,7 @@ _Reminder:_ Rebasing instead of merging requires pushes to be forced in most cas
 * `dist/`: The generated artifact that will be consumed by [dotfiles][github-dotfiles-url]
   * `...`
 * `lib/`: Libraries required and used by the executables in `bin/`
-  * `test/`: Mirrors the `src/` directory structure but contains specs to test all the files
+  * `test/`: Mirrors the `src/` directory structure but contains specs to test all the source files
   * `...`
 * `src/`: Contains the source files to be edited
   * `lib/`: Libraries required and used by `profile.sh` and/or executables in `libexec/`
