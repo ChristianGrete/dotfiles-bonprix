@@ -25,9 +25,11 @@ As a contributor, you must fork the repository. See the [GitHub documentation on
 
 ### Committing
 ```
-type(scope): short summary as commit title
-- detailed information
-- more detailed information
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
 ```
 
 ### Merging
