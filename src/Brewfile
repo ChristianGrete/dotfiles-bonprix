@@ -1,6 +1,8 @@
 brew 'ant'
+brew 'graphicsmagick'
 brew 'ivy'
 brew 'maven'
+brew 'nginx'
 brew 'tomcat@7'
 
 cask 'intellij-idea'
