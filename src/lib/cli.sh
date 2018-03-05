@@ -15,15 +15,16 @@ Location:
 Alias: bp
 
 Options:
-  -?, -h, --help       Show usage (print this text)
-  -v, --version        Print bonprix CLI version
+  -?, -h, --help         Show usage (print this text)
+  -v, --version          Print bonprix CLI version
 
 Commands:
-  <no command>         Go to workspace
-  .                    Go to workspace and open it
-  help <command>       Show more information on a command
-  package <command>    Go to dotfiles package and optionally run <command>
-  <paths...>           Go to workspace directories or open files in it
+  <no command>           Go to workspace
+  .                      Go to workspace and open it#
+  admin <commands...>    Login or execute <commands...> as admin
+  help <command>         Show more information on a command
+  package <command>      Go to dotfiles package and optionally run <command>
+  <paths...>             Go to workspace directories or open files in it
 
 Run \`bonprix help <command>\` for more information on specific commands.
 EOF
