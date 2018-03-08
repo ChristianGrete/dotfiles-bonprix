@@ -65,7 +65,7 @@ fi
 
 printf 'Installing dotfiles-bonprix package ... '
 
-"$DOTFILES_PACKAGES/dotfiles-bonprix/bin/install" >/dev/null 2>&1
+"$DOTFILES_PACKAGES/dotfiles-bonprix/bin/install" # >/dev/null 2>&1
 
 if [ $? -eq 0 ]
   then
