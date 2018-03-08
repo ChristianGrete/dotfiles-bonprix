@@ -66,10 +66,10 @@ EOF
 else
   printf 'Trying to install Homebrew dependencies with current user ... '
 
-  echo $(
+  $(
     cd "$PWD/dist"
 
-    command brew bundle # >/dev/null 2>&1
+    command brew bundle >/dev/null 2>&1
   )
 
   if [ $? -eq 0 ]
