@@ -1,3 +1,5 @@
+cask 'java8'
+
 brew 'ant'
 brew 'graphicsmagick'
 brew 'ivy'
@@ -5,5 +7,5 @@ brew 'maven'
 brew 'nginx'
 brew 'tomcat@7'
 
+cask 'docker'
 cask 'intellij-idea'
-cask 'java8'
