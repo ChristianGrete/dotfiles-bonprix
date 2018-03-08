@@ -69,7 +69,7 @@ else
   $(
     cd "$PWD/dist"
 
-    brew bundle >/dev/null 2>&1
+    command brew bundle # >/dev/null 2>&1
   )
 
   if [ $? -eq 0 ]
