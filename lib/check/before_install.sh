@@ -45,3 +45,18 @@ else
 
   exit 1
 fi
+
+printf 'Tapping homebrew/bundle repository ... '
+
+command brew tap homebrew/bundle >/dev/null 2>&1
+
+if [ $? -eq 0 ]
+  then
+    echo 'success.'
+else
+  echo 'failed.'
+
+  echo; echo "Error: Unable to tap homebrew/bundle repository." >&2
+
+  exit 1
+fi
