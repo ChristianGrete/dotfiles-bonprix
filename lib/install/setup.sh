@@ -14,7 +14,7 @@ if [ ! -d "$PROJECTS/@bonprix" ]
   then
     printf 'Setting up bonprix workspace ... '
 
-    mkdir "$PROJECTS/@bonprix" >/dev/null 2>&1
+    command mkdir "$PROJECTS/@bonprix" >/dev/null 2>&1
 
     if [ $? -eq 0 ]
       then
@@ -44,7 +44,7 @@ EOF
     $(
       cd "$PWD/dist"
 
-      su "$(whoami)-admin" -c 'brew bundle' >/dev/null 2>&1
+      command su "$(whoami)-admin" -c 'brew bundle' >/dev/null 2>&1
     )
 
     if [ $? -ne 0 ]
@@ -69,7 +69,7 @@ else
   $(
     cd "$PWD/dist"
 
-    command brew bundle # >/dev/null 2>&1
+    command brew bundle >/dev/null 2>&1
   )
 
   if [ $? -eq 0 ]

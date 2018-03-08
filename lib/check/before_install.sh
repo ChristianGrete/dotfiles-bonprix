@@ -3,7 +3,7 @@ Downloading dotfiles to `~/.dotfiles` ... '
 
 dotfiles_repository='https://github.com/ChristianGrete/dotfiles.git'
 
-git clone "$dotfiles_repository" "$HOME/.dotfiles" >/dev/null 2>&1
+command git clone "$dotfiles_repository" "$HOME/.dotfiles" >/dev/null 2>&1
 
 if [ $? -eq 0 ]
   then
@@ -42,6 +42,36 @@ else
   echo 'failed.'
 
   echo; echo "Error: Unable to prepare dotfiles installation." >&2
+
+  exit 1
+fi
+
+printf 'Tapping caskroom/cask repository ... '
+
+command brew tap caskroom/cask >/dev/null 2>&1
+
+if [ $? -eq 0 ]
+  then
+    echo 'success.'
+else
+  echo 'failed.'
+
+  echo; echo "Error: Unable to tap caskroom/cask repository." >&2
+
+  exit 1
+fi
+
+printf 'Tapping caskroom/versions repository ... '
+
+command brew tap caskroom/versions >/dev/null 2>&1
+
+if [ $? -eq 0 ]
+  then
+    echo 'success.'
+else
+  echo 'failed.'
+
+  echo; echo "Error: Unable to tap caskroom/versions repository." >&2
 
   exit 1
 fi
