@@ -17,6 +17,7 @@ Location:
 
 Options:
   -?, -h, --help    Show usage (print this text)
+  -l, --login       Fully login as admin instead of simulating a login
   -v, --version     Print bonprix CLI version
 
 Commands:
@@ -31,7 +32,10 @@ EOF
 
 if [ $# -lt 1 ]
   then
-    command su -l "$(whoami)-admin"
+    command su - "$(whoami)-admin"
+elif [ "$1" = '-l' ] || [ "$1" = '--login' ]
+  then
+    login "$(whoami)-admin"
 else
   command su "$(whoami)-admin" -c "$*"
 fi
