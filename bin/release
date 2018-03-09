@@ -2,9 +2,7 @@
 
 cd "$(dirname "$0")/.."
 
-[ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ]
-
-[ $? -eq 0 ] && export PWD="$(pwd)"
+[ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ] && export PWD="$(pwd)"
 
 if [ ! -x "$(command -v -- branch 2>/dev/null)" ]
   then
