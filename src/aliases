@@ -9,3 +9,5 @@ alias bppi='bpp install'
 alias bppr='bpp release'
 alias bppt='bpp test'
 alias bppu='bpp uninstall'
+
+alias idea='open -a "$(ls -dt /Applications/IntelliJ\ IDEA* | head -1)"'
