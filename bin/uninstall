@@ -3,7 +3,7 @@
 if [ -z ${PROFILES:+PROFILES} ] || [ ! -d "$PROFILES" ] || [ ! -w "$PROFILES" ]
   then
     echo "$(cat <<EOF
-Error: Your profiles directory is undefined or not writable. Please make sure
+💥  Error: Your profiles directory is undefined or not writable. Please make sure
 that dotfiles is correctly installed and the user permissions are properly set.
 Then try again.
 EOF
@@ -12,9 +12,9 @@ EOF
     exit 1
 fi
 
-printf 'Removing symbolic link ... '
+printf '🚫  Removing symbolic link from profiles directory ... '
 
-rm -fr "$PROFILES/bonprix.sh"
+rm -fr "$PROFILES/bonprix.sh" >/dev/null 2>&1
 
 [ $? -ne 0 ] && echo 'failed.' && exit 1
 
