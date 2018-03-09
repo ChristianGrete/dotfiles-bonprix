@@ -1,9 +1,9 @@
 if [ -z ${PROJECTS:+PROJECTS} ] || [ ! -d "$PROJECTS" ] || [ ! -w "$PROJECTS" ]
   then
     echo "$(cat <<EOF
-Error: Your projects directory is undefined or not writable. Please make sure
-that dotfiles is correctly installed and the user permissions are properly set.
-Then try again.
+💥  Error: Your projects directory is undefined or not writable. Please make
+sure that dotfiles is correctly installed and the user permissions are properly
+set. Then try again.
 EOF
     )" >&2
 
@@ -23,16 +23,18 @@ if [ ! -d "$PROJECTS/@bonprix" ]
     else
       echo 'failed.'
 
-      echo; echo "Error: Cannot setup bonprix workspace." >&2
+      echo; echo "💥  Error: Cannot setup bonprix workspace." >&2
 
       exit 1
     fi
 fi
 
-if [ -d "$HOME-admin" ]
+command id -Gn "$(whoami)" 2>/dev/null | grep -q -w admin
+
+if [ $? -ne 0 ] && [ -d "$HOME-admin" ]
   then
     echo "$(cat <<EOF
-It is required to log in to your admin user account to install Homebrew
+⚠️  It is ${underline}required${normal} to log in to your admin user account to install Homebrew
 dependencies on this machine.
 
 Username: $(whoami)-admin
@@ -44,7 +46,7 @@ EOF
     $(
       cd "$PWD/dist"
 
-      command su "$(whoami)-admin" -c 'brew bundle' >/dev/null 2>&1
+      command su "$(whoami)-admin" -c 'command brew bundle' >/dev/null 2>&1
     )
 
     if [ $? -ne 0 ]
@@ -53,16 +55,18 @@ EOF
 '
 
         echo "$(cat <<EOF
-Error: Unable to install Homebrew dependencies as admin user. Maybe the password
-you have entered was incorrect. Please try again or contact your system
+⛔️  Error: Unable to install Homebrew dependencies as admin user. Maybe the
+password you have entered was incorrect. Please try again or contact your system
 administrator.
 EOF
-        )"
+        )" >&2
 
         exit 1
     fi
 
-    echo
+    echo '
+
+🍻  Successfully installed Homebrew bundle as admin user!'
 else
   printf 'Trying to install Homebrew dependencies with current user ... '
 
@@ -78,7 +82,7 @@ else
   else
     echo 'failed.'
 
-    echo; echo "Error: Unable to install Homebrew dependencies." >&2
+    echo; echo "💥  Error: Unable to install Homebrew dependencies." >&2
 
     exit 1
   fi
