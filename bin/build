@@ -4,12 +4,12 @@ cd "$(dirname "$0")/.."
 
 [ -z ${PWD:+PWD} ] || [ "$PWD" != "$(pwd)" ] && export PWD="$(pwd)"
 
-echo '💣 Cleaning up...'
+echo '💣  Cleaning up...'
 
 . "$PWD/bin/clean"
 
 echo '
-📦 Building...'
+📦  Building...'
 
 printf 'Creating `./dist` artifact ... '
 
