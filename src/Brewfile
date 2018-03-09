@@ -1,4 +1,4 @@
-cask 'java8' unless system '/usr/libexec/java_home --failfast'
+cask 'java8' unless system '/usr/libexec/java_home --failfast --version 1.8'
 
 brew 'ant'
 brew 'graphicsmagick'
