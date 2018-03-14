@@ -1,8 +1,8 @@
 #!/bin/sh
 
-[ "$1" = '-v' ] || [ "$1" = '--version' ]
-
-[ $? -eq 0 ] && echo "$BONPRIX_PACKAGE_VERSION" && exit
+if [ "$1" = '-v' ] || [ "$1" = '--version' ]; then
+  echo "$BONPRIX_PACKAGE_VERSION"; exit
+fi
 
 usage="$(cat <<EOF
 Usage: bonprix admin [commands...]
@@ -26,16 +26,24 @@ Commands:
 EOF
 )"
 
-[ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]
+if [ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]; then
+  echo "$usage"; exit
+fi
 
-[ $? -eq 0 ] && echo "$usage" && exit
+unset usage
 
-if [ $# -lt 1 ]
-  then
-    command su - "$(whoami)-admin"
-elif [ "$1" = '-l' ] || [ "$1" = '--login' ]
-  then
-    login "$(whoami)-admin"
+if [ $# -lt 1 ]; then
+  command su - "$(whoami)-admin"
+elif [ "$1" = '-l' ] || [ "$1" = '--login' ]; then
+  command login "$(whoami)-admin"
+elif [ -f "$BONPRIX_PACKAGE_SOURCES/lib/admin/$1.sh" ] && \
+     [ -r "$BONPRIX_PACKAGE_SOURCES/lib/admin/$1.sh" ]; then
+  function="$1"
+  filename="$BONPRIX_PACKAGE_SOURCES/lib/admin/$1.sh"
+
+  shift
+
+  command su "$(whoami)-admin" -c ". '$filename' && $function $*"
 else
   command su "$(whoami)-admin" -c "$*"
 fi
