@@ -1,4 +1,4 @@
-setup_tomcat_context () {
+cp_tomcat_context () {
   command mv "$TOMCAT_HOME/conf/context.xml" \
     "$TOMCAT_HOME/conf/context_backup.$(date '+%Y-%m-%d@%H-%M-%S').xml"
 

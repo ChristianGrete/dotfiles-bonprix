@@ -1,4 +1,4 @@
-repair_docker_perms () {
+fix_docker_perms () {
   executables='docker docker-compose docker-machine hyperkit vpnkit'
   source_path='/Applications/Docker.app/Contents/Resources/bin'
   target_path='/usr/local/bin'
