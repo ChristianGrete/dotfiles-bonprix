@@ -31,30 +31,22 @@ Commands:
 EOF
 )"
 
-[ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]
-
-[ $? -eq 0 ] && echo "$usage" && exit
+if [ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]; then
+  echo "$usage"; exit
+fi
 
 unset usage
 
-[ "$1" = '-v' ] || [ "$1" = '--version' ]
+if [ "$1" = '-v' ] || [ "$1" = '--version' ]; then
+  echo "$BONPRIX_PACKAGE_VERSION"; exit
+fi
 
-[ $? -eq 0 ] && echo "$BONPRIX_PACKAGE_VERSION" && exit
+if [ -x "$BONPRIX_PACKAGE/bin/$1" ]; then
+  subcommand="$1"
 
-if [ -x "$BONPRIX_PACKAGE/bin/$1" ]
-  then
-    subcommand="$1"
-
-    shift
-
-    command "$BONPRIX_PACKAGE/bin/$subcommand" $@
-elif [ -e "$BONPRIX_PACKAGE/bin/$1" ]
-  then
-    echo "$BONPRIX_PACKAGE/bin/$1: command not executable" >&2
-
-    exit 126
+  shift; command "$BONPRIX_PACKAGE/bin/$subcommand" "$@"
+elif [ -e "$BONPRIX_PACKAGE/bin/$1" ]; then
+  echo "$BONPRIX_PACKAGE/bin/$1: command not executable" >&2; exit 126
 else
-  echo "$BONPRIX_PACKAGE/bin/$1: command not found" >&2
-
-  exit 127
+  echo "$BONPRIX_PACKAGE/bin/$1: command not found" >&2; exit 127
 fi

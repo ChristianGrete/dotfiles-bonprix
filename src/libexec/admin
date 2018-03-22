@@ -36,8 +36,8 @@ if [ $# -lt 1 ]; then
   command su - "$(whoami)-admin"
 elif [ "$1" = '-l' ] || [ "$1" = '--login' ]; then
   command login "$(whoami)-admin"
-elif [ -f "$BONPRIX_PACKAGE_SOURCES/lib/admin/$1.sh" ] && \
-     [ -r "$BONPRIX_PACKAGE_SOURCES/lib/admin/$1.sh" ]; then
+elif [ -f "$BONPRIX_PACKAGE_SOURCES/lib/admin/$1.sh" ] \
+  && [ -r "$BONPRIX_PACKAGE_SOURCES/lib/admin/$1.sh" ]; then
   function="$1"
   filename="$BONPRIX_PACKAGE_SOURCES/lib/admin/$1.sh"
 

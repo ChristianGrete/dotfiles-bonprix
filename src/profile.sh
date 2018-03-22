@@ -4,14 +4,12 @@ export BONPRIX_PACKAGE_SOURCES="$BONPRIX_PACKAGE/dist"
 export BONPRIX_PACKAGE_VERSION="$(
   cd "$BONPRIX_PACKAGE"
 
-  git describe --tags "$(git rev-list --max-count=1 --tags)" 2>/dev/null
-
-  [ $? -ne 0 ] && echo 'Unversioned'
+  git describe --tags "$(git rev-list --max-count=1 --tags)" 2>/dev/null \
+    || echo 'Unversioned'
 )"
 
-for file in env lib/cli.sh functions aliases
-  do
-    . "$BONPRIX_PACKAGE_SOURCES/$file"
+for file in env lib/cli.sh functions aliases; do
+  . "$BONPRIX_PACKAGE_SOURCES/$file"
 done
 
 unset file

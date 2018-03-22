@@ -4,8 +4,6 @@ bpab () {
   elif [ -d "$HOME-admin" ]; then
     bonprix admin "command brew $@"
   else
-    echo "$(whoami): user is not an admin" >&2
-
-    return 1
+    echo "$(whoami): user is not an admin" >&2; return 1
   fi
 }

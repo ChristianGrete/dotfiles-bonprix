@@ -30,86 +30,64 @@ Run \`bonprix help <command>\` for more information on specific commands.
 EOF
   )"
 
-  [ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]
-
-  [ $? -eq 0 ] && echo "$usage" && return
+  if [ "$1" = '-?' ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]; then
+    echo "$usage"; return
+  fi
 
   unset usage
 
-  [ "$1" = '-v' ] || [ "$1" = '--version' ]
-
-  [ $? -eq 0 ] && echo "$BONPRIX_PACKAGE_VERSION" && return
+  if [ "$1" = '-v' ] || [ "$1" = '--version' ]; then
+    echo "$BONPRIX_PACKAGE_VERSION"; return
+  fi
 
   [ "$1" = '.' ] && cd "$BONPRIX" && "$VISUAL" '.' && return
 
-  if [ "$1" = 'package' ] || [ "$1" = 'pkg' ]
-    then
-      if [ $# -lt 2 ] || [ "$2" = '.' ]
-        then
-          cd "$BONPRIX_PACKAGE"
-      fi
+  if [ "$1" = 'package' ] || [ "$1" = 'pkg' ]; then
+    if [ $# -lt 2 ] || [ "$2" = '.' ]; then
+      cd "$BONPRIX_PACKAGE"
+    fi
   fi
 
-  if [ -x "$BONPRIX_PACKAGE_SOURCES/libexec/$1" ]
-    then
-      command="$1"
+  if [ -x "$BONPRIX_PACKAGE_SOURCES/libexec/$1" ]; then
+    command="$1"; shift
 
-      shift
-
-      command "$BONPRIX_PACKAGE_SOURCES/libexec/$command" $@
-
-      return
+    command "$BONPRIX_PACKAGE_SOURCES/libexec/$command" "$@"; return
   fi
 
-  if [ -r "$BONPRIX/$1" ]
-    then
-      if [ -d "$BONPRIX/$1" ]
-        then
-          if [ $# -eq 1 ] || [ "$2" = '.' ]
-            then
-              cd "$BONPRIX/$1"
-          fi
-
-          if [ $# -gt 1 ]
-            then
-              [ "$2" = '.' ] && "$VISUAL" '.' && return
-
-              paths="$BONPRIX/$1"
-
-              shift
-
-              for segment in "$@"
-                do
-                  if [ "$segment" = '.' ] && [ -d "$paths" ]
-                    then
-                      cd "$paths" && "$VISUAL" '.' && return
-                  fi
-
-                  if [ -r "$paths/$segment" ]
-                    then
-                      paths="$paths/$segment"
-
-                      [ ! -d "$paths" ] && break
-                  else
-                    echo "$paths/$segment: invalid path" >&2
-
-                    return 1
-                  fi
-              done
-
-              unset segment
-
-              [ -d "$paths" ] && cd "$paths" && return
-
-              [ -f "$paths" ] && cd "$(dirname "$paths")" && "$VISUAL" "$paths"
-          fi
-      elif [ -f "$BONPRIX/$1" ]
-        then
-          cd "$(dirname "$BONPRIX/$1")" && "$VISUAL" "$BONPRIX/$1"
+  if [ -r "$BONPRIX/$1" ]; then
+    if [ -d "$BONPRIX/$1" ]; then
+      if [ $# -eq 1 ] || [ "$2" = '.' ]; then
+        cd "$BONPRIX/$1"
       fi
+
+      if [ $# -gt 1 ]; then
+        [ "$2" = '.' ] && "$VISUAL" '.' && return
+
+        paths="$BONPRIX/$1"; shift
+
+        for segment in "$@"; do
+          [ "$segment" = '.' ] && [ -d "$paths" ] && cd "$paths" \
+            && "$VISUAL" '.' && return
+
+          if [ -r "$paths/$segment" ]; then
+            paths="$paths/$segment"
+
+            [ ! -d "$paths" ] && break
+          else
+            echo "$paths/$segment: invalid path" >&2; return 1
+          fi
+        done
+
+        unset segment
+
+        [ -d "$paths" ] && cd "$paths" && return
+
+        [ -f "$paths" ] && cd "$(dirname "$paths")" && "$VISUAL" "$paths"
+      fi
+    elif [ -f "$BONPRIX/$1" ]; then
+      cd "$(dirname "$BONPRIX/$1")" && "$VISUAL" "$BONPRIX/$1"
+    fi
   else
-    echo "$BONPRIX/$1: invalid path" >&2
-
-    return 1
+    echo "$BONPRIX/$1: invalid path" >&2; return 1
   fi
 }

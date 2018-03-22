@@ -25,9 +25,8 @@ Commands:
 EOF
 )"
 
-[ $# -lt 1 ] || [ "$1" = 'help' ]
-
-[ $? -eq 0 ] || [ ! -x "$BONPRIX_PACKAGE_SOURCES/libexec/$1" ]
+[ $# -lt 1 ] || [ "$1" = 'help' ] \
+  || [ ! -x "$BONPRIX_PACKAGE_SOURCES/libexec/$1" ]
 
 [ $? -eq 0 ] && echo "$usage" && exit
 
