@@ -1,9 +1,11 @@
 bpab () {
-  command id -Gn "$(whoami)" 2>/dev/null | grep -q -w admin
-
-  if [ $? -ne 0 ] && [ -d "$HOME-admin" ]; then
-    bonprix admin "command brew $*"
+  if command id -Gn "$(whoami)" 2>/dev/null | grep -q -w admin; then
+    command brew "$@"
+  elif [ -d "$HOME-admin" ]; then
+    bonprix admin "command brew $@"
   else
-    command brew "$*"
+    echo "$(whoami): user is not an admin" >&2
+
+    return 1
   fi
 }
