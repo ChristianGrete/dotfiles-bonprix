@@ -1,4 +1,4 @@
-fix_usr_local_acls () {
+fix_usr_local_perms () {
   [ ! -d "${HOME%-admin}" ] && exit 1
 
   admin_user="$(whoami)"
@@ -12,7 +12,7 @@ share var"
 
   command sudo -v >/dev/null 2>&1 # TODO
 
-  printf '🔑  Resetting ACLs in /usr/local ... '
+  printf '🔑  Fixing permissions in /usr/local ... '
 
   (
     for basename in $basenames; do

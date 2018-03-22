@@ -9,7 +9,7 @@ export BONPRIX_PACKAGE_VERSION="$(
   [ $? -ne 0 ] && echo 'Unversioned'
 )"
 
-for file in env lib/cli.sh aliases
+for file in env lib/cli.sh functions aliases
   do
     . "$BONPRIX_PACKAGE_SOURCES/$file"
 done
