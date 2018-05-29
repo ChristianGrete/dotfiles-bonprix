@@ -1,0 +1,52 @@
+binary = "{$binary,*.{ai,bmp,eot,eps,gif,jp{eg,g},pdf,png,ps{b,d},raw,swf,tif,tiff,ttf,woff{,2}}}"
+encoding = "UTF-8"
+exclude = "{$exclude,.DS_Store}"
+excludeInProject= "{.git,dist,node_modules}"
+excludeInFileChooser = "{$excludeInFileChooser,$excludeInProject}"
+excludeInFolderSearch = "{$excludeInFolderSearch,$excludeInProject}"
+include = "{$include,.{babelrc,editorconfig,git?*,nvmrc,sasslintrc,tm_properties}}"
+leftWindowTitle = "@bonprix"
+projectDirectory = "$CWD"
+scmBranch = "${TM_SCM_BRANCH:+ ($TM_SCM_BRANCH)}"
+rightWindowTitle = "${TM_FILEPATH:?/${TM_FILEPATH/${CWD}\///}: ($TM_DISPLAYNAME)}$scmBranch"
+softTabs = true
+tabSize = 2
+windowTitle = "$leftWindowTitle$rightWindowTitle"
+wrapColumn = 80
+
+[ attr.untitled ]
+fileType = text.plain
+
+[ text.git-commit,text.html.markdown ]
+softTabs = false
+spellChecking = true
+spellingLanguage = "en"
+tabSize = 4
+wrapColumn = "Use Window Frame"
+
+[ "*.ejs" ]
+fileType = text.html.basic
+
+[ "*.js" ]
+fileType = source.ts
+
+[ "*.jsx" ]
+fileType = source.tsx
+
+[ "*.md" ]
+fileType = text.html.markdown
+
+[ "*.svg" ]
+fileType = text.xml
+
+[ ".{babelrc,sasslintrc}" ]
+fileType = source.json
+
+[ ".{gitmessage,nvmrc}" ]
+fileType = text.plain
+
+[ ".editorconfig" ]
+fileType = source.tm-properties
+
+[ ".gitignore" ]
+fileType = source.git-config
