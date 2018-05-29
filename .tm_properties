@@ -18,27 +18,31 @@ wrapColumn = 80
 [ attr.untitled ]
 fileType = source.shell
 
-[ text.git-commit ]
+[ text.git-commit,text.html.markdown,text.plain ]
 softTabs = false
-spellChecking = true
-spellingLanguage = "en"
-tabSize = 4
-
-[ text.html.markdown ]
-softTabs = false
-spellChecking = true
-spellingLanguage = "en"
 tabSize = 4
 wrapColumn = "Use Window Frame"
-
-[ ".editorconfig" ]
-fileType = source.tm-properties
-
-[ ".gitignore" ]
-fileType = source.git-config
 
 [ "*.md" ]
 fileType = text.html.markdown
 
 [ "*.svg" ]
 fileType = text.xml
+
+[ ".gitignore" ]
+fileType = source.git-config
+
+[ "{,.}editorconfig" ]
+fileType = source.tm-properties
+
+[ "{,.}gitmessage" ]
+fileType = text.plain
+
+[ "{,.}tm_properties" ]
+fileType = source.tm-properties
+
+[ "Brewfile" ]
+fileType = source.ruby
+
+[ "src/{aliases,env,functions,libexec/{admin,help,package,pkg}}" ]
+fileType = source.shell
