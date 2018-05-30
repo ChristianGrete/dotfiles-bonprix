@@ -10,9 +10,18 @@ list,read,readattr,readextattr,readsecurity,search,write,writeattr,writeextattr"
   basenames="bin Caskroom Cellar etc Frameworks Homebrew include lib opt sbin \
 share var"
 
-  command sudo -v >/dev/null 2>&1 # TODO
+  echo '
+🔑  You may need to re-enter your password to gain root access.
+'
 
-  printf '🔑  Fixing permissions in /usr/local ... '
+  if ! command sudo -v >/dev/null 2>&1; then
+    echo; echo '💥  Error.' >&2
+
+    exit 1
+  fi
+
+  printf '
+⚙️  Fixing permissions in `/usr/local` ... '
 
   (
     for basename in $basenames; do
