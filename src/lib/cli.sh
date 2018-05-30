@@ -51,7 +51,21 @@ EOF
   if [ -x "$BONPRIX_PACKAGE_SOURCES/libexec/$1" ]; then
     command="$1"; shift
 
-    command "$BONPRIX_PACKAGE_SOURCES/libexec/$command" "$@"; return
+    if [ "$command" = 'admin' ] && [ "$1" = 'fix_zsh_comp_perms' ]; then
+      compaudit >/dev/null 2>&1
+
+      [ $? -eq 127 ] && echo "💥  Error: Zsh completion system unavailable." \
+        && return 126
+
+      shift; set -- 'fix_zsh_comp_perms' "$(compaudit 2>/dev/null)" "$@"
+    fi
+
+    command "$BONPRIX_PACKAGE_SOURCES/libexec/$command" "$@"
+
+    [ $? -eq 0 ] && [ "$command" = 'admin' ] && \
+      [ "$1" = 'fix_zsh_comp_perms' ] && compinit && return
+
+    return 0
   fi
 
   if [ -r "$BONPRIX/$1" ]; then

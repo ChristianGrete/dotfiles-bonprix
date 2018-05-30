@@ -16,13 +16,14 @@ Location:
   $BONPRIX_PACKAGE_SOURCES/libexec/admin
 
 Options:
-  -?, -h, --help    Show usage (print this text)
-  -l, --login       Fully login as admin instead of simulating a login
-  -v, --version     Print bonprix CLI version
+  -?, -h, --help        Show usage (print this text)
+  -l, --login           Fully login as admin instead of simulating a login
+  -v, --version         Print bonprix CLI version
 
 Commands:
-  <no command>      Login as admin
-  <any commands>    Execute <commands...> as admin
+  <no command>          Login as admin
+  fix_zsh_comp_perms    Fix Zsh completion permissions
+  <any commands>        Execute <commands...> as admin
 EOF
 )"
 
@@ -38,12 +39,15 @@ elif [ "$1" = '-l' ] || [ "$1" = '--login' ]; then
   command login "$(whoami)-admin"
 elif [ -f "$BONPRIX_PACKAGE_SOURCES/lib/admin/$1.sh" ] \
   && [ -r "$BONPRIX_PACKAGE_SOURCES/lib/admin/$1.sh" ]; then
-  function="$1"
-  filename="$BONPRIX_PACKAGE_SOURCES/lib/admin/$1.sh"
+  filename="$BONPRIX_PACKAGE_SOURCES/lib/admin/$1.sh"; function="$1"; shift
 
-  shift
+  if [ "$function" = 'fix_zsh_comp_perms' ]; then
+    filenames="$1"; shift
 
-  command su "$(whoami)-admin" -c ". '$filename' && $function $*"
+    command su "$(whoami)-admin" -c ". '$filename' && $function '$filenames' $*"
+  else
+    command su "$(whoami)-admin" -c ". '$filename' && $function $*"
+  fi
 else
   command su "$(whoami)-admin" -c "$*"
 fi
