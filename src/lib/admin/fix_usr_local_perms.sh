@@ -11,11 +11,10 @@ list,read,readattr,readextattr,readsecurity,search,write,writeattr,writeextattr"
 share var"
 
   echo '
-🔑  You may need to re-enter your password to gain root access.
-'
+🔑  You may need to re-enter your password to gain root access.'
 
   if ! command sudo -v >/dev/null 2>&1; then
-    echo; echo '💥  Error.' >&2
+    echo; echo '💥  Error: Unable to gain root access.' >&2
 
     exit 1
   fi
