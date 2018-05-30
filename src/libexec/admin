@@ -16,14 +16,15 @@ Location:
   $BONPRIX_PACKAGE_SOURCES/libexec/admin
 
 Options:
-  -?, -h, --help        Show usage (print this text)
-  -l, --login           Fully login as admin instead of simulating a login
-  -v, --version         Print bonprix CLI version
+  -?, -h, --help          Show usage (print this text)
+  -l, --login             Fully login as admin instead of simulating a login
+  -v, --version           Print bonprix CLI version
 
 Commands:
-  <no command>          Login as admin
-  fix_zsh_comp_perms    Fix Zsh completion permissions
-  <any commands>        Execute <commands...> as admin
+  <no command>            Login as admin
+  fix_usr_local_perms     Fix permissions in /usr/local
+  fix_zsh_comp_perms      Fix Zsh completion permissions
+  <any commands>          Execute <commands...> as admin
 EOF
 )"
 
