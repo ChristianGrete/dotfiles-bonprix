@@ -1,6 +1,7 @@
 cask 'java8' unless system '/usr/libexec/java_home --failfast --version 1.8'
 
 brew 'ant'
+brew 'git-lfs'
 brew 'graphicsmagick'
 brew 'ivy'
 brew 'maven'
