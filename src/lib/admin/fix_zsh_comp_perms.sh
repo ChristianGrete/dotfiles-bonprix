@@ -1,6 +1,10 @@
 fix_zsh_comp_perms () {
   [ ! -d "${HOME%-admin}" ] && exit 1
 
+  admin_user="$(whoami)"
+  permissions="add_file,add_subdirectory,append,delete,delete_child,execute,\
+list,read,readattr,readextattr,readsecurity,search,write,writeattr,writeextattr"
+
   if [ "$1" == '' ]; then
     echo '
 ✅  No insecure directories detected.'
@@ -24,6 +28,11 @@ fix_zsh_comp_perms () {
 
   printf "$insecure_directories" \
     | command sudo command xargs command chmod go-w >/dev/null 2>&1
+
+  [ $? -ne 0 ] && echo 'failed.' && exit 1
+
+  command sudo command chmod -R +a "$admin_user allow $permissions" \
+    "/usr/local/share/zsh/site-functions" >/dev/null 2>&1
 
   [ $? -ne 0 ] && echo 'failed.' && exit 1
 
